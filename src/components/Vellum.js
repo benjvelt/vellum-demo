@@ -20,7 +20,7 @@ export default function Vellum() {
         // Velt Setup: Authenticate - 3) Fetch relevant user info
         const user = {
             userId: `${randId}`,
-            name: `user${randId}`,
+            name: `User ${randId}`,
             email: `user${randId}@vellum.ai`,
             photoUrl: `https://i.pravatar.cc/30${randId}`
         };
