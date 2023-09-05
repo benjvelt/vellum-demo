@@ -7,14 +7,6 @@ import '../App.css';
 export default function Vellum() {
     const { client } = useVeltClient();
 
-    let photos = [
-        "https://i.pravatar.cc/300",
-        "https://i.pravatar.cc/301",
-        "https://i.pravatar.cc/302",
-        "https://i.pravatar.cc/303"
-    
-    ]
-
     // 2) Create a useEffect hook
     useEffect(() => {
         if (client) {
@@ -22,13 +14,13 @@ export default function Vellum() {
         // Fetch the relevant user info from your authenticated user object.
         // const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
 
-        const randId = Math.floor(Math.random() * 4)
+        const randId = Math.floor(Math.random() * 9)
         // Create the Velt user object
         const user = {
             userId: `${randId}`,
             name: `user${randId}`,
             email: `user${randId}@vellum.ai`,
-            photoUrl: photos[Math.floor(Math.random() * 4)]
+            photoUrl: `https://i.pravatar.cc/30${randId}`
         };
 
         //4) Pass the user object to the SDK
