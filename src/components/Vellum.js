@@ -1,4 +1,4 @@
-// 1) Get the Velt Client
+// Velt Setup: Authenticate - 1) Get the Velt client
 import { useVeltClient, VeltPresence  } from '@veltdev/react';
 
 import { useEffect } from 'react';
@@ -7,15 +7,13 @@ import '../App.css';
 export default function Vellum() {
     const { client } = useVeltClient();
 
-    // 2) Create a useEffect hook
+    // Velt Setup: Authenticate - 2) Create a useEffect hook
     useEffect(() => {
         if (client) {
 
-        // Fetch the relevant user info from your authenticated user object.
-        // const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
-
         const randId = Math.floor(Math.random() * 9)
-        // Create the Velt user object
+
+        // Velt Setup: Authenticate - 3) Fetch relevant user info
         const user = {
             userId: `${randId}`,
             name: `user${randId}`,
@@ -23,8 +21,10 @@ export default function Vellum() {
             photoUrl: `https://i.pravatar.cc/30${randId}`
         };
 
-        //4) Pass the user object to the SDK
+        // Velt Setup: Authenticate - 4) Pass the user object to the SDK
         client.identify(user);
+
+        // Velt Setup: Initialize Document - 5) Set a document ID
         client.setDocumentId('unique-document-id');
         console.log("user: ", user)
 
@@ -440,11 +440,8 @@ export default function Vellum() {
         All changes saved"
                                 style={{display:"flex",alignItems:"center",justifyCenter:"center"}}
                                 >
-
-
-                                
-                                <VeltPresence darkMode={true} />
-
+                                {/* Add Velt Presence Component */}
+                                <VeltPresence/>
                                 <button
                                     className="MuiButtonBase-root MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textNeutral MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation MuiButton-root MuiLoadingButton-root MuiButton-text MuiButton-textNeutral MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-disableElevation mui-style-sov7fx"
                                     tabIndex={0}
