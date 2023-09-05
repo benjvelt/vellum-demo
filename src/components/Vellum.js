@@ -1,11 +1,13 @@
 // Velt Setup: Authenticate - 1) Get the Velt client
 import { useVeltClient, VeltPresence  } from '@veltdev/react';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import '../App.css';
 
 export default function Vellum() {
     const { client } = useVeltClient();
+
+    let [user,setUser] = useState("")
 
     // Velt Setup: Authenticate - 2) Create a useEffect hook
     useEffect(() => {
@@ -27,6 +29,7 @@ export default function Vellum() {
         // Velt Setup: Initialize Document - 5) Set a document ID
         client.setDocumentId('unique-document-id');
         console.log("user: ", user)
+        setUser(user)
 
         }
     }, [client]);
@@ -353,14 +356,14 @@ export default function Vellum() {
                                     <div className="MuiAvatar-root MuiAvatar-circular mui-style-ogfacg">
                                         <img
                                         alt="Benjamin Lin"
-                                        src="https://lh3.googleusercontent.com/a/AAcHTtf-iuDqruNGNSHCZDpA1tYLM9eWy6BLal95HcBH2FDY=s96-c"
+                                        src={user.photoUrl}
                                         className="MuiAvatar-img mui-style-1hy9t21"
                                         />
                                     </div>
                                     </div>
                                     <div className="MuiListItemText-root mui-style-1tsvksn">
                                     <span className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary mui-style-qyqpz1">
-                                        Profile
+                                        Profile: User <span>{user.userId}</span>
                                     </span>
                                     </div>
                                     <span className="MuiTouchRipple-root mui-style-w0pj6f" />
