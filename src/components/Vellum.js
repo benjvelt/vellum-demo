@@ -13,6 +13,8 @@ export default function Vellum() {
     useEffect(() => {
         if (client) {
 
+        
+
         const randId = Math.floor(Math.random() * 9)
 
         // Velt Setup: Authenticate - 3) Fetch relevant user info
@@ -28,6 +30,12 @@ export default function Vellum() {
 
         // Velt Setup: Initialize Document - 5) Set a document ID
         client.setDocumentId('unique-document-id');
+
+        //enables highlighting of elements
+        let selectionElement = client.getSelectionElement()
+
+        selectionElement.enableLiveSelection()
+
         console.log("user: ", user)
         setUser(user)
 
